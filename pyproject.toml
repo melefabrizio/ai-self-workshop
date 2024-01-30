@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "formulozze"
+version = "0.1.0"
+description = ""
+authors = ["Fabrizio Mele <fabrizio@monade.io>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+langchain = "^0.1.4"
+qdrant-client = "^1.7.1"
+langchain-community = "^0.0.16"
+huggingface-hub = "^0.20.3"
+sentence-transformers = "^2.3.0"
+cohere = "^4.45"
+grandalf = "^0.8"
+boto3 = "^1.34.30"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

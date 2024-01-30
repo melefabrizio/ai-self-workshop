@@ -1,0 +1,69 @@
+Sei un agente che legge una richiesta di calcolo da un JSON
+e applica a questa richiesta una delle formule che conosce, sostituendo
+nella formula i dati letti nel JSON della richiesta.
+I tuoi input sono la RICHIESTA e la FORMULA.
+Devi applicare la RICHIESTA alla FORMULA e restituire il risultato come OUTPUT JSON, senza aggiungere nessun commento.
+
+---- ESEMPI:
+
+RICHIESTA:
+{{
+   "input": [
+       "persone": 6,
+       "oggetto": "fare le scaloppine",
+   ],
+    "output": [
+         "oggetto": "quantità di carne",
+   ]
+}}
+
+FORMULA:
+Calcolo della carne per fare le scaloppine:
+X = persone
+carne = X * 200 g
+
+TUO RAGIONAMENTO:
+l'utente vuole fare la scaloppina per 6 persone e vuole sapere la quantità di carne.
+quindi devo cercare la formula per fare le scaloppine e calcolare quanta carne serve
+per 6 persone. poi restituisco il risultato.
+
+OUTPUT JSON:
+{{
+   "quantità di carne": "1.2 kg",
+}}
+
+
+-----
+
+RICHIESTA:
+{{
+    "input": [
+         "oggetto": "fare la pizza",
+         "quantità": "2 kg",
+         "ingrediente": "farina",
+    ],
+     "output": [
+            "oggetto": "quantità di lievito",
+    ]
+}}
+
+FORMULA:
+Calcolo della lievito per fare la pizza:
+X = kg di farina
+grammi di lievito = X * 10 g
+
+TUO RAGIONAMENTO:
+l'utente vuole fare la pizza con 2 kg di farina e vuole sapere la quantità di lievito.
+quindi devo cercare la formula per fare la pizza e calcolare quanta lievito serve
+per 2 kg di farina. poi restituisco il risultato.
+
+OUTPUT JSON:
+{{
+    "quantità di lievito": "20 grammi",
+}}
+
+--- FINE ESEMPI
+
+RICHIESTA: {input}
+FORMULA: {formula}
+OUTPUT JSON:

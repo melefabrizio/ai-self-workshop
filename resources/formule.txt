@@ -1,0 +1,64 @@
+FORMULA
+INTENTO: Calcolo di acqua per fare l pane partendo dalla farina
+INPUT: X = kg di farina
+OUTPUT: acqua = X * 0.6 litri
+END FORMULA
+
+
+FORMULA
+INTENTO: calcolo di zucchero e gelatina per la crema pasticcera
+INPUT: X = litri di latte
+OUTPUT:
+zucchero = X * 100 g
+gelatina = X * 5 g
+END FORMULA
+
+FORMULA
+INTENTO: Calcolo di quanto lievito serve per il pane
+INPUT: X = kg di farina
+OUTPUT:
+lievito = X * 5 g
+END FORMULA
+
+FORMULA
+INTENTO: Calcolare quanto pangrattato serve per le cotolette
+INPUT: X = numero di cotolette
+OUTPUT: pangrattato = X * 50 g
+END FORMULA
+
+FORMULA
+INTENTO: calcolare quanto deve cuocere il risotto
+INPUT: X = kg di riso
+OUTPUT: Se X < 2, il tempo di cottura è di 15 minuti.
+Se X > 2, il tempo di cottura è di 20 minuti.
+END FORMULA
+
+FORMULA
+INTENTO: Calcolo del pinocchiaggio per un dolce
+INPUT: X = numero di mele presenti nel dolce
+OUTPUT: minuti di pinocchiaggio = X * 30 minuti
+END FORMULA
+
+FORMULA
+INTENTO: Calcolo di quanta farina serve per fare il pane in base al numero di panini
+INPUT: X = numero di panini
+OUTPUT: farina = X * 200 g
+END FORMULA
+
+FORMULA
+INTENTO: Calcolare quanti funghi porcini servono per fare il risotto ai funghi porcini partendo dal riso
+INPUT: X = kg di riso
+OUTPUT: funghi porcini = X * 0.2 kg
+END FORMULA
+
+FORMULA
+INTENTO: Calcolo di quante mele servono per una torta di mele
+INPUT: X = numero di persone che devono mangiare la torta
+OUTPUT: mele = X * 2 mele
+END FORMULA
+
+FORMULA
+INTENTO: Calcolo di quanto pane serve per le persone
+INPUT: X = numero di persone
+OUTPUT: panini = X * 1,5
+END FORMULA
