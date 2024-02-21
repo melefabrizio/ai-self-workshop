@@ -61,19 +61,17 @@ def request_parser():
     return chain
 
 
-def main():
-    llm = Cohere(model="command", max_tokens=256, temperature=0.1)
-    template = open("resources/expression_generator.txt").read(
-    )  # read the template from file
-    prompt = ChatPromptTemplate.from_template(template)
-    model = bedrock(model_name="anthropic.claude-v2:1", temperature=0.1)
-    request_chain = request_parser()
+def run_request(input):
+    chain, request_chain = prepare_chains()
 
-    chain = (
-        prompt
-        | model
-        | StrOutputParser()
-    )
+    parsed_query = request_chain.invoke({"input": input})
+    formulas = retrieve(input)
+    result = chain.invoke({"input": parsed_query, "formula": formulas})
+    return result, formulas
+
+
+def main():
+    chain, request_chain = prepare_chains()
     # ask user for input
     while True:
         query = input("Inserisci una richiesta: ")
@@ -85,6 +83,22 @@ def main():
         print(chain.invoke({"input": parsed_query, "formula": formulas}))
         print("\n\n")
 
+
+def prepare_chains():
+    dotenv.load_dotenv()
+    llm = Cohere(model="command", max_tokens=256, temperature=0.1)
+    template = open("resources/expression_generator.txt").read(
+    )  # read the template from file
+    prompt = ChatPromptTemplate.from_template(template)
+    model = bedrock(model_name="anthropic.claude-v2:1", temperature=0)
+    #model = ChatCohere(llm=llm)
+    request_chain = request_parser()
+    chain = (
+            prompt
+            | model
+            | StrOutputParser()
+    )
+    return chain, request_chain
 
 
 if __name__ == '__main__':

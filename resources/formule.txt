@@ -34,9 +34,9 @@ Se X > 2, il tempo di cottura è di 20 minuti.
 END FORMULA
 
 FORMULA
-INTENTO: Calcolo del pinocchiaggio per un dolce
+INTENTO: Calcolo della cottura per un dolce
 INPUT: X = numero di mele presenti nel dolce
-OUTPUT: minuti di pinocchiaggio = X * 30 minuti
+OUTPUT: minuti di cottura = X * 30 minuti
 END FORMULA
 
 FORMULA
@@ -61,4 +61,22 @@ FORMULA
 INTENTO: Calcolo di quanto pane serve per le persone
 INPUT: X = numero di persone
 OUTPUT: panini = X * 1,5
+END FORMULA
+
+FORMULA
+INTENTO: Quantità di uova per la pasta alla carbonara
+INPUT: X = numero di persone
+OUTPUT: uova = (X * 2) + 1
+END FORMULA
+
+FORMULA
+INTENTO: Calcolo di quanto sale serve per fare il pane
+INPUT: X = kg di farina
+OUTPUT: sale = X * 10 g
+END FORMULA
+
+FORMULA
+INTENTO: Calcolare quanta pasta serve a persona
+INPUT: X = numero di persone
+OUTPUT: pasta = (X * 100 g) + 100 g
 END FORMULA
