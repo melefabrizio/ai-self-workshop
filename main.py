@@ -90,7 +90,7 @@ def prepare_chains():
     template = open("resources/expression_generator.txt").read(
     )  # read the template from file
     prompt = ChatPromptTemplate.from_template(template)
-    model = bedrock(model_name="anthropic.claude-v2:1", temperature=0)
+    model = bedrock(model_name="anthropic.claude-v2:1", temperature=0.15)
     #model = ChatCohere(llm=llm)
     request_chain = request_parser()
     chain = (
