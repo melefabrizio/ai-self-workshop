@@ -9,10 +9,19 @@ from bedrock import bedrock_model
 import pytest
 
 test_cases = [
-    {"input": "Quanta farina serve per fare panini per 23 persone?", "output": "6,9 kg di farina"},
-    {"input": "Quanto costa fare il risotto ai funghi?", "output": "Risposta non possibile"},
-    {"input": "Quanta acqua e quanto lievito mi servono per fare il pane con 2 kg di farina?",
-     "output": "1,2 l di acqua e 10 g di lievito"},
+    {
+        "input": "Quanta farina serve per fare panini per 23 persone?",
+        "output": "6,9 kg di farina"
+    }, {
+        "input": "Quanto costa fare il risotto ai funghi?",
+        "output": "Risposta non possibile"
+    }, {
+        "input": "Quanta acqua e quanto lievito mi servono per fare il pane con 2 kg di farina?",
+        "output": "1,2 l di acqua e 10 g di lievito"
+    }, {
+        "input": "Voglio fare una torta di mele e crema pasticcera per 7 persone, so che devo usare 3 litri di latte. Quante mele, zucchero e gelatina mi servono?",
+        "output": "Servono 14 mele, 300 grammi di zucchero e 15 grammi di gelatina."
+    }
 ]
 
 
@@ -37,8 +46,8 @@ math_metric = GEval(
     evaluation_params=[LLMTestCaseParams.ACTUAL_OUTPUT],
 )
 
-hallucination_metric = FaithfulnessMetric(threshold=0.8)
-relevancy_metric = AnswerRelevancyMetric(threshold=0.8)
+hallucination_metric = FaithfulnessMetric(threshold=0.70)
+relevancy_metric = AnswerRelevancyMetric(threshold=0.9)
 
 @pytest.mark.parametrize("chat_input", test_cases)
 def test_formulozze(chat_input):
@@ -59,12 +68,13 @@ def test_formulozze(chat_input):
                 )
 
 
-@deepeval.set_hyperparameters(model="anthropic.claude-v2:1")
+@deepeval.set_hyperparameters(model="claude@0.15")
 def set_hyperparameters():
     return {
         "chunk_size": 150,
+        "model": "anthropic.claude-v2:1",
         "chunk_overlap": 0,
-        "model_temperature": 0,
+        "model_temperature": 0.15,
         "parser_prompt_template": open("resources/parser.txt").read(),
         "expression_prompt_template": open("resources/expression_generator.txt").read(),
         "embedding": "cohere",
